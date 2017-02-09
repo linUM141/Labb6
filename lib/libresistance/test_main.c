@@ -98,8 +98,9 @@ int main(){
     returnValue = calc_resistance(testArraySize, 'S', testArray);
     testResult = assertIsTheSame("Verify that summary of resistance items for S is working", 3, returnValue);
 
-    returnValue = calc_resistance(testArraySize, 'P', testArray);
-    testResult = assertIsTheSame("Verify that summary of resistance items for P is working", 1.5, returnValue);
+    float testArrayWithRealResistanceScenario[2] = {150,300};
+    returnValue = calc_resistance(sizeof(testArrayWithRealResistanceScenario)/sizeof(testArrayWithRealResistanceScenario[0]), 'P', testArrayWithRealResistanceScenario);
+    testResult = assertIsTheSame("Verify that summary of resistance items for P is working", 100, returnValue);
 
     if(testResult != TRUE){
         printFailedTestText("All", "There were tests failing, se above for more information");

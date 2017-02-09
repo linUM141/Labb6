@@ -47,5 +47,9 @@ float calc_resistance(int count, char conn, float *array){
         return 0;
     }
 
+    if(conn == 'P'){
+        resistanceSum = 1/resistanceSum;
+    }
+
     return resistanceSum;
 }

@@ -11,12 +11,14 @@ libresistance.o: libresistance.c libresistance.h
 
 clean:
 	rm *.o
+	rm *.so
+	rm test_main
 
 test: program
 	./test_main
 
-install: program
-	cp bin/program1 /usr/local/bin/program1
+install: lib
+	cp libresistance.so /usr/local/bin/libresistance.so
 
 uninstall:
-	rm /usr/local/bin/program1
+	rm /usr/local/bin/libresistance.so
