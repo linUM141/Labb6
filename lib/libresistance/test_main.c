@@ -84,10 +84,6 @@ int main(){
     returnValue = calc_resistance(4, 'P', nullPointer);
     testResult = assertIsTheSame("Sending in the array with a null pointer gives -1 as result", INVALID_ARGUMENT, returnValue);
 
-    //float values[5] = {1,2,3,4,5};
-    //returnValue = calc_resistance(4, 'P', values);
-    //testResult = assertIsTheSame("Sending in array with different items than count in should get -1 as a result", INVALID_ARGUMENT, returnValue);
-
     float testArrayWithOneZeroItem[3] = {0,1,2};
     returnValue = calc_resistance(testArraySize, 'P', testArrayWithOneZeroItem);
     testResult = assertIsTheSame("Sending in one array item with 0 and P should give return value 0", 0, returnValue);
