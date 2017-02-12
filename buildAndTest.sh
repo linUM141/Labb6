@@ -1,6 +1,5 @@
 #Test resistance lib
-cd lib/libresistance/
-make test
+make -C lib/libresistance test
 
 #Test full program
 make
