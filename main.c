@@ -16,7 +16,8 @@ int main(){
     scanf(" %i", &numberOfConnections);
 
     float* resistanceValues = malloc(numberOfConnections*sizeof(float));
-    for(int i = 0; i < numberOfConnections; i++){
+    int i = 0;
+    for(i; i < numberOfConnections; i++){
         printf("Komponent %i i ohm: ", i+1);
         float* resistance = (resistanceValues + i);
         scanf(" %f", resistance);
