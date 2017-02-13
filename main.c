@@ -2,6 +2,7 @@
 //malloc etc
 #include <stdlib.h>
 #include "lib/libresistance/libresistance.h"
+#include "lib/libpower/libpower.h"
 #include "lib/libcomponent/libcomponent.h"
 
 int main(){
@@ -32,7 +33,7 @@ int main(){
     printf("\nErsättningsresistans:\n%.1f ohm", totalresistance);
     //Calculate voltage(Daniel)
     //Calc code
-    printf("\nEffekt:\n%.2f W", 1.78);
+    printf("\nEffekt:\n%.2f W", calc_power_r(voltage, totalresistance));
 
     //Calculate resistance E12 components(Thomas)
     float* replaceResistanceValues = calloc(3,sizeof(float));
