@@ -3,3 +3,10 @@ compiler:
 - gcc
 script: ./buildAndTest.sh
 sudo: required
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/514128ca4a247e742d17
+    on_success: always  # options: [always|never|change] default: always
+    on_failure: always  # options: [always|never|change] default: always
+    on_start: never     # options: [always|never|change] default: always
