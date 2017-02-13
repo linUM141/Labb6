@@ -45,7 +45,7 @@ int e_resistance(float orig_resistance, float *res_array) {
 	}
 
 	//Fill unused values as per specification, we cannot be sure that the array is 0-init
-	for (i = res_array_index; res_array_index < ARRAYMAX; res_array_index++) {
+	for (i = res_array_index; i < ARRAYMAX; i++) {
 		*(res_array + i) = 0.0f;
 	}
 
