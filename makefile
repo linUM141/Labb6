@@ -4,7 +4,7 @@ program: lib
 	gcc -L./lib -Wall -o electrotest main.c -lresistance -Wl,-rpath=./lib
 
 libInstall: lib
-	sudo cp lib/libresistance.so /usr/local/bin/libresistance.so
+	sudo cp lib/libresistance.so /usr/lib/libresistance.so
 
 lib: libresistance.o
 	gcc -shared -fPIC -o lib/libresistance.so libresistance.o
@@ -18,9 +18,9 @@ clean:
 	rm electrotest
 
 install: libInstall
-	gcc -L/usr/local/bin -Wall -o electrotest main.c -lresistance -Wl,-rpath=/usr/local/bin
+	gcc -Wall -o electrotest main.c -lresistance
 	sudo cp electrotest /usr/local/bin/electrotest
 
 uninstall:
-	sudo rm /usr/local/bin/libresistance.so
+	sudo rm /usr/lib/libresistance.so
 	sudo rm /usr/local/bin/electrotest
