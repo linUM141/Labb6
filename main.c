@@ -1,5 +1,8 @@
 #include <stdio.h>
+//malloc etc
+#include <stdlib.h>
 #include "lib/libresistance/libresistance.h"
+#include "lib/libcomponent/libcomponent.h"
 
 int main(){
     float voltage = 0;
@@ -31,6 +34,18 @@ int main(){
     printf("\nEffekt:\n%.2f W", 1.78);
 
     //Calculate resistance E12 components(Thomas)
+    float* replaceResistanceValues = calloc(3,sizeof(float));
+    if(NULL==replaceResistanceValues){
+    	printf("\nMalloc failure\n");
+    	return -1;
+    }
     //Calc code
-    printf("\nErsättningsresistans i E12-serien kopplade i serie:\n%i\n%i\n%i\n", 1200, 180, 18);
+	int numberOfResistors = e_resistance(totalresistance, replaceResistanceValues);
+    if(numberOfResistors<0){
+    	printf("\nError in replacement resistor calculation\n");
+    } else {
+    printf("\nErsättningsresistans i E12-serien kopplade i serie:\n%.0f\n%.0f\n%.0f\n", *replaceResistanceValues, *(replaceResistanceValues+1), *(replaceResistanceValues+2));
+    }
+
+    free(replaceResistanceValues);
 }
