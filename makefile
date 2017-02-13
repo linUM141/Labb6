@@ -4,8 +4,8 @@ program: lib
 	gcc -L./lib -Wall -o electrotest main.c -lresistance -lcomponent -Wl,-rpath=./lib
 
 libInstall: lib
-	cp lib/libresistance.so /usr/local/bin/libresistance.so
-	cp lib/libcomponent.so /usr/local/bin/libcomponent.so
+	sudo cp lib/libresistance.so /usr/lib/libresistance.so
+	sudo cp lib/libcomponent.so /usr/local/bin/libcomponent.so
 
 lib: libresistance.o libcomponent.o
 	gcc -shared -fPIC -o lib/libresistance.so libresistance.o
@@ -22,13 +22,10 @@ clean:
 	rm lib/*.so
 	rm electrotest
 
-test: program
-	./test_main
-
 install: libInstall
-	gcc -L/usr/local/bin -Wall -o electrotest main.c -lresistance -Wl,-rpath=/usr/local/bin
-	cp electrotest /usr/local/bin/electrotest
+	gcc -Wall -o electrotest main.c -lresistance
+	sudo cp electrotest /usr/local/bin/electrotest
 
 uninstall:
-	rm /usr/local/bin/libresistance.so
-	rm /usr/local/bin/electrotest
+	sudo rm /usr/lib/libresistance.so
+	sudo rm /usr/local/bin/electrotest
