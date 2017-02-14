@@ -84,6 +84,7 @@ electrotest
 Här utförs i princip samma sak som när utvecklings versionen av programmet och biblioteken skapas. Den stora skillnaden är:
 - lib filerna kopieras in i de publika mapparna
 - programmet länkas mot de publika mapparna på datorn
+- programmet kopieras till de publika mapparna på datorn
 
 Då default beteendet vid länkning och vart man ska titta efter *.so filer i gcc är att titta i de publika mapparna så tar vi mer eller mindre bort de specificerande flaggorna som vi hade när vi länkade utvecklingsprogrammet.
 
