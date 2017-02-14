@@ -64,7 +64,7 @@ Se nedan för exempel:
 gcc -L./lib -Wall -o electrotest main.c -lresistance -lpower -lcomponent -Wl,-rpath=./lib
 ```
 
-## Install programs
+## Installera program
 Här installeras programmet och biblioteken i de publika mapparna på datorn.
 
 Programmet installeras under:/usr/local/bin/
@@ -92,7 +92,7 @@ Se nedan för exempel:
 gcc -Wall -o electrotest main.c -lresistance -lpower -lcomponent
 ```
 
-## Uninstall program
+## Avinstallera program
 Här avinstalleras programmet och biblioteken ifrån de publika mapparna på datorn.
 
 Programmet tas bort från: /usr/local/bin/
