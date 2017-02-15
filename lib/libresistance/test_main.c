@@ -38,8 +38,7 @@ void printFailedTestText(char* testName, char* text,...){
 }
 
 void printSuccessTestText(char* testName, char* text,...){
-    va_list args;
-    printTestText(testName, text, ANSI_COLOR_GREEN, args);
+    printTestText(testName, text, ANSI_COLOR_GREEN, NULL);
 }
 
 unsigned assertIsTheSame(char* testName,float expected, float given){
