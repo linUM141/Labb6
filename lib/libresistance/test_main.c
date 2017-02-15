@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include <assert.h>
+#include <string.h>
 #include "libresistance.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -12,29 +14,6 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 typedef enum {FALSE = 0, TRUE} boolean;
-
-unsigned assertIsTheSame(char* testName,float expected, float given){
-   
-    if(expected == given){
-        return TRUE;
-    } else{
-        printFailedTestText(testName, "The numbers are not the same. Should be %f but was %f", expected, given);
-        assert(expected == given);
-        return FALSE;
-    }
-}
-
-
-unsigned assertIsNotTheSame(char* testName, float expected, float given){
-    
-    if(expected != given){
-        return TRUE;
-    } else{
-        printFailedTestText(testName, "The numbers are the same. Should not be %f but was %f", expected, given);
-        assert(expected != given);
-        return FALSE;
-    }
-}
 
 void printTestText(char* testName, char* text, char* colour, va_list args){
     char* message;
@@ -59,8 +38,31 @@ void printFailedTestText(char* testName, char* text,...){
 }
 
 void printSuccessTestText(char* testName, char* text,...){
-    va_list args;
+    va_list args = 0;
     printTestText(testName, text, ANSI_COLOR_GREEN, args);
+}
+
+unsigned assertIsTheSame(char* testName,float expected, float given){
+   
+    if(expected == given){
+        return TRUE;
+    } else{
+        printFailedTestText(testName, "The numbers are not the same. Should be %f but was %f", expected, given);
+        assert(expected == given);
+        return FALSE;
+    }
+}
+
+
+unsigned assertIsNotTheSame(char* testName, float expected, float given){
+    
+    if(expected != given){
+        return TRUE;
+    } else{
+        printFailedTestText(testName, "The numbers are the same. Should not be %f but was %f", expected, given);
+        assert(expected != given);
+        return FALSE;
+    }
 }
 
 int main(){
