@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 #include "libcomponent.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -13,6 +14,8 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 typedef enum {FALSE = 0, TRUE} boolean;
+
+void printFailedTestText(char* testName, char* text,...);
 
 unsigned assertIsTheSame(char* testName,float expected, float given){
    
@@ -67,15 +70,65 @@ void printSuccessTestText(char* testName, char* text,...){
 //TEST UNDER CONSTRUCTION
 int main(){
     unsigned int testResult = TRUE;
-    float returnValue;
+    float *testarray = NULL;
+    int returnValue;
     int INVALID_ARGUMENT = -1;
+    int INVALID_ARRAY = -2;
 
     //Test INVALID ARGUMENTS
-    //Test very high resistance
-    //Test negative resistance
-    //Test non-allocated array
+    returnValue = e_resistance(100.0f, testarray);
+    testResult = assertIsTheSame("Check NULL pointer argument", INVALID_ARRAY, returnValue);
+
+    //Test too small array*
+    /*
+    testarray = malloc(2*sizeof(float));
+    returnValue = e_resistance(20.f, &value);
+    testResult = assertIsTheSame("Check too small argument array", INVALID_ARRAY, returnValue);
+    free(testarray);
+	*/
+
+    testarray = malloc(3*sizeof(float));
+
+    returnValue = e_resistance(1000000000000.0f, testarray);
+    testResult = assertIsTheSame("Check very high resistance", INVALID_ARGUMENT, returnValue);
+
+    returnValue = e_resistance(-100.0f, testarray);
+    testResult = assertIsTheSame("Check negative resistance", INVALID_ARGUMENT, returnValue);
+
     
     //Test correctness of resistances
+    returnValue = e_resistance(1398.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 180, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 18, *(testarray+2));
+
+    returnValue = e_resistance(8210.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 8200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 10, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
     
-    return testResult;
+    returnValue = e_resistance(1200.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+
+    returnValue = e_resistance(68445.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 68000, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 390, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 47, *(testarray+2));
+
+    returnValue = e_resistance(11.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 10, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+
+    free(testarray);
+
+    if(testResult != TRUE){
+            printFailedTestText("All", "There were tests failing, se above for more information");
+            return 1;
+        } else {
+            printSuccessTestText("All","All tests were ok!");
+            return 0;
+        }
 }

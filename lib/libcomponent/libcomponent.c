@@ -8,6 +8,7 @@
  *
  */
 
+#define NULL ( (void *) 0)
 #include "libcomponent.h"
 
 int e_resistance(float orig_resistance, float *res_array) {
@@ -23,8 +24,24 @@ int e_resistance(float orig_resistance, float *res_array) {
 	float powersOf10[6] = { 1000000.0f, 100000.0f, 10000.0f, 1000.0f, 100.0f, 10.0f };
 
 	//Negative resistance cant be built, nor does the series extend above MegaOhm values
-	if (orig_resistance < 0.0f || orig_resistance > 10 * powersOf10[0])
+	if (orig_resistance < 0.0f || orig_resistance > 10 * powersOf10[0]){
 		return -1;
+	}
+
+	//If total resistance is less than 10 Ohms, this function cannot construct it
+	if (orig_resistance < 0.0f || orig_resistance > 10 * powersOf10[0]){
+		return -1;
+	}
+
+	//Is res_array a null pointer?
+	if(NULL==res_array){
+		return -2;
+	}
+
+	//Is res_array allocated big enough to hold 3 floats
+	if(malloc_usable_size(res_array)<(3*sizeof(float))){
+		return -2;
+	}
 
 	//From Highest to Lowest power of 10, loop e12 series backwards, compare to orig res value
 	//Iff value is smaller, save value in res array, subtract from orig_resistance and repeat
