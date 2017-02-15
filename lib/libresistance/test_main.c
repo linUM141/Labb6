@@ -19,7 +19,7 @@ void printTestText(char* testName, char* text, char* colour, va_list args){
     char* message;
     char* delimiter = ": ";
     char* newLine = "\n";
-    message = malloc(strlen(testName) + strlen(delimiter) + strlen(text) + strlen(ANSI_COLOR_RED) + strlen(newLine));
+    message = malloc(strlen(testName) + strlen(delimiter) + strlen(text) + strlen(colour) + strlen(newLine));
     strcpy(message, colour);
     strcat(message, testName);
     strcat(message, delimiter);
@@ -38,7 +38,9 @@ void printFailedTestText(char* testName, char* text,...){
 }
 
 void printSuccessTestText(char* testName, char* text,...){
-    printTestText(testName, text, ANSI_COLOR_GREEN, NULL);
+    va_list args;
+    va_start( args, text );
+    printTestText(testName, text, ANSI_COLOR_GREEN, args);
 }
 
 unsigned assertIsTheSame(char* testName,float expected, float given){
