@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #include "libpower.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -12,14 +15,16 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 typedef enum {FALSE = 0, TRUE} boolean;
-/*
-unsigned assertIsTheSame(char* testName,float expected, float given){
+
+void printFailedTestText(char* testName, char* text,...);
+
+unsigned assertIsTheSame(char* testName, float expected, float given){
    
-    if(expected == given){
+    if(fabsf(expected / given - 1) < epsilon){
         return TRUE;
     } else{
         printFailedTestText(testName, "The numbers are not the same. Should be %f but was %f", expected, given);
-        assert(expected == given);
+        //assert(fabsf(expected / given - 1) < epsilon);
         return FALSE;
     }
 }
@@ -27,11 +32,11 @@ unsigned assertIsTheSame(char* testName,float expected, float given){
 
 unsigned assertIsNotTheSame(char* testName, float expected, float given){
     
-    if(expected != given){
+    if(fabsf(expected / given - 1) > epsilon){
         return TRUE;
     } else{
         printFailedTestText(testName, "The numbers are the same. Should not be %f but was %f", expected, given);
-        assert(expected != given);
+        //assert(expected != given);
         return FALSE;
     }
 }
@@ -63,47 +68,141 @@ void printSuccessTestText(char* testName, char* text,...){
     printTestText(testName, text, ANSI_COLOR_GREEN, args);
 }
 
-int main(){
-    unsigned int testResult = TRUE;
+int main (){
     float returnValue;
     int INVALID_ARGUMENT = -1;
 
-    float testArray[2] = {1,2};
-    int testArraySize = sizeof(testArray)/sizeof(testArray[0]);
+    int passedTests = 0;
+    int totalTests = 0;
 
-    returnValue = calc_resistance(0,'P',0);
-    testResult = assertIsTheSame("Check that count 0 is not allowed", INVALID_ARGUMENT, returnValue);
+    // Test Correct Arguments
+    returnValue = calc_power_r(3.0f, 5.0f);
+    totalTests++;
+    if (assertIsTheSame("Check correct argument #1", 1.8f, returnValue))
+    {
+        passedTests++;
+    }
 
-    returnValue = calc_resistance(-1,'P',0);
-    testResult = assertIsTheSame("Check that count lower than 0 is not allowed",INVALID_ARGUMENT, returnValue);
+    returnValue = calc_power_i(4.2f, 3.6f);
+    totalTests++;
+    if (assertIsTheSame("Check correct argument #2", 15.12f, returnValue))
+    {
+        passedTests++;
+    }
+
+    // Test Correct Arguments
+    returnValue = calc_power_r(1000000000.0f, 5000000000.0f);
+    totalTests++;
     
-    returnValue = calc_resistance(testArraySize, 'V', testArray);
-    testResult = assertIsTheSame("Sending in V in conn and should get -1 as a result", INVALID_ARGUMENT, returnValue);
+    if (assertIsTheSame("Check correct argument #1", 200000000.0f, returnValue))
+    {
+        passedTests++;
+    }
 
-    float* nullPointer = 0;
-    returnValue = calc_resistance(4, 'P', nullPointer);
-    testResult = assertIsTheSame("Sending in the array with a null pointer gives -1 as result", INVALID_ARGUMENT, returnValue);
+    returnValue = calc_power_i(1000000000.0f, 5000000000.0f);
+    totalTests++;
+    if (assertIsTheSame("Check correct argument #2", 5000000000000000000.0f, returnValue))
+    {
+        passedTests++;
+    }
 
-    float testArrayWithOneZeroItem[3] = {0,1,2};
-    returnValue = calc_resistance(testArraySize, 'P', testArrayWithOneZeroItem);
-    testResult = assertIsTheSame("Sending in one array item with 0 and P should give return value 0", 0, returnValue);
+    // Borde prova att höväen fungerar också    // Test Invalid Arguments
+    returnValue = calc_power_r(0.0f, 5.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #1", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
 
-    returnValue = calc_resistance(testArraySize, 'S', testArrayWithOneZeroItem);
-    testResult = assertIsNotTheSame("Sending in one array item with 0 and S should not give return value 0", 0, returnValue);
+    returnValue = calc_power_r(5.0f, 0.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #2", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
 
-    returnValue = calc_resistance(testArraySize, 'S', testArray);
-    testResult = assertIsTheSame("Verify that summary of resistance items for S is working", 3, returnValue);
+    returnValue = calc_power_i(0.0f, 5.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #3", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
 
-    float testArrayWithRealResistanceScenario[2] = {150,300};
-    returnValue = calc_resistance(sizeof(testArrayWithRealResistanceScenario)/sizeof(testArrayWithRealResistanceScenario[0]), 'P', testArrayWithRealResistanceScenario);
-    testResult = assertIsTheSame("Verify that summary of resistance items for P is working", 100, returnValue);
+    returnValue = calc_power_i(5.0f, 0.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #4", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
 
-    if(testResult != TRUE){
-        printFailedTestText("All", "There were tests failing, se above for more information");
+    returnValue = calc_power_i(0.0f, -5.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #5", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
+
+    returnValue = calc_power_i(-5.0f, 0.0f);
+    totalTests++;
+    if (assertIsTheSame("Check invalid argument #6", INVALID_ARGUMENT, returnValue))
+    {
+        passedTests++;
+    }
+
+    /*
+    returnValue = e_resistance(100.0f, testarray);
+    testResult = assertIsTheSame("Check NULL pointer argument", INVALID_ARRAY, returnValue);
+
+    testarray = malloc(3*sizeof(float));
+
+    returnValue = e_resistance(1000000000000.0f, testarray);
+    testResult = assertIsTheSame("Check very high resistance", INVALID_ARGUMENT, returnValue);
+
+    returnValue = e_resistance(-100.0f, testarray);
+    testResult = assertIsTheSame("Check negative resistance", INVALID_ARGUMENT, returnValue);
+
+    
+    //Test correctness of resistances
+    returnValue = e_resistance(1398.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 180, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 18, *(testarray+2));
+
+    returnValue = e_resistance(8210.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 8200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 10, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+    
+    returnValue = e_resistance(1200.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+
+    returnValue = e_resistance(68445.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 68000, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 390, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 47, *(testarray+2));
+
+    returnValue = e_resistance(11.f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 10, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+
+    //Is this acceptable behavior?
+    returnValue = e_resistance(269.99f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 270, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+    */
+
+    if (passedTests != totalTests)
+    {
+        printf("%d out of %d tests passed.\n", passedTests, totalTests);
         return 1;
-    } else {
-        printSuccessTestText("All","All tests were ok!");
+    } 
+    else 
+    {
+        printSuccessTestText("All","All tests were ok!\n");
         return 0;
     }
-}
-*/
+} 

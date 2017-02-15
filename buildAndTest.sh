@@ -2,6 +2,10 @@
 echo "Running tests of libresistance" && \
 make -C lib/libresistance test && \
 
+#Test power lib
+echo "Running tests of power" && \
+make -C lib/libpower test && \
+
 #Test component lib
 echo "Running tests of libcomponent" && \
 make -C lib/libcomponent test && \
