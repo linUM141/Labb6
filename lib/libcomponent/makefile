@@ -1,6 +1,6 @@
 CC = gcc
 OBJECTS = libcomponent.o
-INSTALLPATH = /usr/local\bin
+INSTALLPATH = /usr/local/bin
 LIBRARY = libcomponent.so
 
 
