@@ -21,6 +21,7 @@ libpower.o: lib/libpower/libpower.c lib/libpower/libpower.h
 
 libcomponent.o: lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
 	gcc -c -fPIC lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
+        #gcc -c -fPIC -mfpmath='387' lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
 
 clean:
 	rm *.o

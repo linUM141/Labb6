@@ -122,6 +122,12 @@ int main(){
     testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
     testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
 
+    //Is this acceptable behavior?
+    returnValue = e_resistance(269.99f, testarray);
+    testResult = assertIsTheSame("Check Index 0", 270, *testarray );
+    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
+    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
+
     free(testarray);
 
     if(testResult != TRUE){
