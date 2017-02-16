@@ -24,9 +24,9 @@ int e_resistance(float orig_resistance, float *res_array) {
 			3.90f, 4.70f, 5.60f, 6.80f, 8.20f };
 	//powers of 10 as floats
 	const float powersOf10[6] = { 1000000.0f, 100000.0f, 10000.0f, 1000.0f, 100.0f, 10.0f };
+
 	//Test tolerance, as minimum resistor value is 10 and minimum deltaresistance is 2 this should work
 	const float TOLERANCE=0.1f;
-	//const float TOLERANCE=FLT_EPSILON*1000;
 	int magnitude = 0;
 
 	//Negative resistance cant be built, nor does the series extend above MegaOhm values
@@ -35,7 +35,7 @@ int e_resistance(float orig_resistance, float *res_array) {
 	}
 
 	//If total resistance is less than 10 Ohms, this function cannot construct it
-	if (orig_resistance < 0.0f || orig_resistance > 10 * powersOf10[0]){
+	if (orig_resistance < 10.0f){
 		return -1;
 	}
 
@@ -55,7 +55,6 @@ int e_resistance(float orig_resistance, float *res_array) {
 	int res_array_index = 0;
 	for (; magnitude < MAX_MAGNITUDE; magnitude++) {
 		for (i = 0; i < 12; i++) {
-			//if ( orig_resistance > e12series[11 - i] * powersOf10[magnitude] || fabs(orig_resistance - (e12series[11 - i] * powersOf10[magnitude]) <= FLT_EPSILON) ) {
 			if(isgreaterequal(orig_resistance+TOLERANCE, e12series[11 - i] * powersOf10[magnitude])){
 				if (res_array_index < ARRAYMAX) {
 					res_array[res_array_index] = e12series[11 - i]

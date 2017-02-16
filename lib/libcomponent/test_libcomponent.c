@@ -95,6 +95,8 @@ int main(){
     returnValue = e_resistance(-100.0f, testarray);
     testResult = assertIsTheSame("Check negative resistance", INVALID_ARGUMENT, returnValue);
 
+    returnValue = e_resistance(5.0f, testarray);
+    testResult = assertIsTheSame("Check low resistance", INVALID_ARGUMENT, returnValue);
     
     //Test correctness of resistances
     returnValue = e_resistance(1398.f, testarray);
