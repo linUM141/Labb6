@@ -50,4 +50,6 @@ int main(){
     }
 
     free(replaceResistanceValues);
+
+    return 0;
 }
