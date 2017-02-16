@@ -14,7 +14,7 @@ lib: libcomponent.o
 
 libcomponent.o: libcomponent.c libcomponent.h
 	$(CC) -c -fPIC libcomponent.c libcomponent.h
-       #$(CC) -c -fPIC -mfpmath='387' libcomponent.c libcomponent.h
+       	#$(CC) -c -fPIC -mfpmath='387' libcomponent.c libcomponent.h
 
 clean:
 	rm $(OBJECTS)

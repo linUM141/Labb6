@@ -21,13 +21,13 @@ int main(){
 
     float* resistanceValues = malloc(numberOfConnections*sizeof(float));
     int i = 0;
-    for(i; i < numberOfConnections; i++){
+    for(; i < numberOfConnections; i++){
         printf("Komponent %i i ohm: ", i+1);
         float* resistance = (resistanceValues + i);
         scanf(" %f", resistance);
     }
 
-    printf("\n======================================= \n");
+    //printf("\n======================================= \n");
     //Calculate resistance(Emil)
     float totalresistance = calc_resistance(numberOfConnections, connectionType, resistanceValues);
     printf("\nErsättningsresistans:\n%.1f ohm", totalresistance);
