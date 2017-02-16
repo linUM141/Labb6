@@ -24,7 +24,6 @@ unsigned assertIsTheSame(char* testName, float expected, float given){
         return TRUE;
     } else{
         printFailedTestText(testName, "The numbers are not the same. Should be %f but was %f", expected, given);
-        //assert(fabsf(expected / given - 1) < epsilon);
         return FALSE;
     }
 }
@@ -36,7 +35,6 @@ unsigned assertIsNotTheSame(char* testName, float expected, float given){
         return TRUE;
     } else{
         printFailedTestText(testName, "The numbers are the same. Should not be %f but was %f", expected, given);
-        //assert(expected != given);
         return FALSE;
     }
 }
@@ -90,23 +88,23 @@ int main (){
         passedTests++;
     }
 
-    // Test Correct Arguments
+    // Test Big  Arguments
     returnValue = calc_power_r(1000000000.0f, 5000000000.0f);
     totalTests++;
     
-    if (assertIsTheSame("Check correct argument #1", 200000000.0f, returnValue))
+    if (assertIsTheSame("Check correct argument #3", 200000000.0f, returnValue))
     {
         passedTests++;
     }
 
     returnValue = calc_power_i(1000000000.0f, 5000000000.0f);
     totalTests++;
-    if (assertIsTheSame("Check correct argument #2", 5000000000000000000.0f, returnValue))
+    if (assertIsTheSame("Check correct argument #4", 5000000000000000000.0f, returnValue))
     {
         passedTests++;
     }
 
-    // Borde prova att höväen fungerar också    // Test Invalid Arguments
+    // Test Invalid Arguments
     returnValue = calc_power_r(0.0f, 5.0f);
     totalTests++;
     if (assertIsTheSame("Check invalid argument #1", INVALID_ARGUMENT, returnValue))
@@ -148,52 +146,6 @@ int main (){
     {
         passedTests++;
     }
-
-    /*
-    returnValue = e_resistance(100.0f, testarray);
-    testResult = assertIsTheSame("Check NULL pointer argument", INVALID_ARRAY, returnValue);
-
-    testarray = malloc(3*sizeof(float));
-
-    returnValue = e_resistance(1000000000000.0f, testarray);
-    testResult = assertIsTheSame("Check very high resistance", INVALID_ARGUMENT, returnValue);
-
-    returnValue = e_resistance(-100.0f, testarray);
-    testResult = assertIsTheSame("Check negative resistance", INVALID_ARGUMENT, returnValue);
-
-    
-    //Test correctness of resistances
-    returnValue = e_resistance(1398.f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 180, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 18, *(testarray+2));
-
-    returnValue = e_resistance(8210.f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 8200, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 10, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
-    
-    returnValue = e_resistance(1200.f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 1200, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
-
-    returnValue = e_resistance(68445.f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 68000, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 390, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 47, *(testarray+2));
-
-    returnValue = e_resistance(11.f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 10, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
-
-    //Is this acceptable behavior?
-    returnValue = e_resistance(269.99f, testarray);
-    testResult = assertIsTheSame("Check Index 0", 270, *testarray );
-    testResult = assertIsTheSame("Check Index 1", 0, *(testarray+1));
-    testResult = assertIsTheSame("Check Index 2", 0, *(testarray+2));
-    */
 
     if (passedTests != totalTests)
     {
