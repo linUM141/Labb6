@@ -8,14 +8,14 @@ make -C lib/libcomponent test && \
 
 #Test full program
 echo "Running regular make" && \
-make make && \
+make && \
 
 echo "Running make lib make" && \
-make lib make && \
+make lib && \
 
 echo "Testing installation make" && \
-make install make && \
+make install && \
 
 echo "Testing uninstall make" && \
-make uninstall make
+make uninstall
 
