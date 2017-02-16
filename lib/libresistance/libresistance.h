@@ -2,6 +2,6 @@
 #ifndef LIBRESISTANCE
 #define LIBRESISTANCE
 
-float calc_resistance(int cout, char conn, float *array);
+float calc_resistance(int count, char conn, float *array);
 
 #endif
