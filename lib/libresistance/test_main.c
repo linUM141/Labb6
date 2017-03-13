@@ -18,6 +18,12 @@
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 
 /**
+* @brief Define the original color, used when going back to default console colour.
+*/
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
+
+/**
 * @brief To avoid having to use 1 and 0, there is an enum definition that mimics true and false.*/
 typedef enum
 {
