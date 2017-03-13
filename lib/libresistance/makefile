@@ -22,3 +22,7 @@ install: lib
 
 uninstall:
 	rm /usr/local/bin/libresistance.so
+
+docs: lib
+	doxygen
+	make -C docs/latex

@@ -1,3 +1,6 @@
+/**
+* @file test_main.c
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -5,16 +8,33 @@
 #include <string.h>
 #include "libresistance.h"
 
+/**
+* @brief Defines the red colour
+*/
 #define ANSI_COLOR_RED     "\x1b[31m"
+/**
+* @brief Defines the green colour
+*/
 #define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_YELLOW  "\x1b[33m"
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_MAGENTA "\x1b[35m"
-#define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
 
-typedef enum {FALSE = 0, TRUE} boolean;
+/**
+* @brief To avoid having to use 1 and 0, there is an enum definition that mimics true and false.*/
+typedef enum
+{
+    FALSE = 0, /**< The same as 0.*/
+    TRUE /**< The same as 1. */
+} boolean;
 
+/**
+* @brief Prints a text with a given colour and a list of arguments
+*
+* A wrapper around printf that simplifies printing out test result text in different colours.
+* @param testName The name of the test
+* @param text The text message to print out
+* @param colour The colour of the text to print
+* @param args The arguments for the text output, it's a va_list so provide it in the same way as for a printf call
+* @return void
+**/
 void printTestText(char* testName, char* text, char* colour, va_list args){
     char* message;
     char* delimiter = ": ";
@@ -31,18 +51,43 @@ void printTestText(char* testName, char* text, char* colour, va_list args){
     va_end( args );
 }
 
+/**
+* @brief Prints failing test messages
+*
+* Calls printTestText function with red text as pre defined and provide the parameters sent in
+* @param testName The name of the test
+* @param text The text message to print out
+* @return void
+**/
 void printFailedTestText(char* testName, char* text,...){
     va_list args;
     va_start( args, text );
     printTestText(testName, text, ANSI_COLOR_RED, args);
 }
 
+/**
+* @brief Prints successful test messages
+*
+* Calls printTestText function with green text as pre defined and provide the parameters sent in
+* @param testName The name of the test
+* @param text The text message to print out
+* @return void
+**/
 void printSuccessTestText(char* testName, char* text,...){
     va_list args;
     va_start( args, text );
     printTestText(testName, text, ANSI_COLOR_GREEN, args);
 }
 
+/**
+* @brief Test method that is used to check if two floats are the same
+*
+* Compare two float values and returns 1 if it's the same and 0 if it's not. It allso makes an assert(expected == given).
+* @param testName The name of the test
+* @param expected The value to expect
+* @param given The value returned by the test
+* @return Returns 1(TRUE) if the test is ok and 0(FALSE) if it's not
+**/
 unsigned assertIsTheSame(char* testName,float expected, float given){
    
     if(expected == given){
@@ -54,7 +99,15 @@ unsigned assertIsTheSame(char* testName,float expected, float given){
     }
 }
 
-
+/**
+* @brief Test method that is used to check if two floats are not the same
+*
+* Compare two float values and returns 1 if it's not the same and 0 if it is. It allso makes an assert(expected != given).
+* @param testName The name of the test
+* @param expected The value to expect
+* @param given The value returned by the test
+* @return Returns 1(TRUE) if the test is ok and 0(FALSE) if it's not
+**/
 unsigned assertIsNotTheSame(char* testName, float expected, float given){
     
     if(expected != given){
@@ -66,6 +119,12 @@ unsigned assertIsNotTheSame(char* testName, float expected, float given){
     }
 }
 
+/**
+* @brief Runs all the tests
+*
+* Runs all the tests and returns 0 if it's ok and 1 if it's not
+* @return Returns 0 if it's ok and 1 if it's not ok.
+**/
 int main(){
     unsigned int testResult = TRUE;
     float returnValue;

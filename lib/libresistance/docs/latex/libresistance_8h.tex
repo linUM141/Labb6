@@ -1,0 +1,64 @@
+\hypertarget{libresistance_8h}{}\section{libresistance.\+h File Reference}
+\label{libresistance_8h}\index{libresistance.\+h@{libresistance.\+h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{libresistance_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{libresistance_8h_a339b5f0f336eb492e36f9d6467678440}{calc\+\_\+resistance} (int count, char conn, float $\ast$array)
+\begin{DoxyCompactList}\small\item\em Calculate the resistance for either parallell or serial connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{libresistance.\+h@{libresistance.\+h}!calc\+\_\+resistance@{calc\+\_\+resistance}}
+\index{calc\+\_\+resistance@{calc\+\_\+resistance}!libresistance.\+h@{libresistance.\+h}}
+\subsubsection[{\texorpdfstring{calc\+\_\+resistance(int count, char conn, float $\ast$array)}{calc_resistance(int count, char conn, float *array)}}]{\setlength{\rightskip}{0pt plus 5cm}float calc\+\_\+resistance (
+\begin{DoxyParamCaption}
+\item[{int}]{count, }
+\item[{char}]{conn, }
+\item[{float $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\hypertarget{libresistance_8h_a339b5f0f336eb492e36f9d6467678440}{}\label{libresistance_8h_a339b5f0f336eb492e36f9d6467678440}
+
+
+Calculate the resistance for either parallell or serial connections. 
+
+Calculates the resistance values for either a series of components that are connected in parallell or serial. 
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of components \\
+\hline
+{\em conn} & The type of connection, can be either P(\+Parallell) or S(\+Serial) \\
+\hline
+{\em $\ast$array} & The resistance values of the components \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The summarized resistance value. If any of the input arguments are incorrect, -\/1 will be returned. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{libresistance_8h_a339b5f0f336eb492e36f9d6467678440_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{libresistance_8h_a339b5f0f336eb492e36f9d6467678440_icgraph}
+\end{center}
+\end{figure}
+
+

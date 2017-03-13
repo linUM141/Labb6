@@ -1,0 +1,66 @@
+\begin{theindex}
+
+  \item {assert\+Is\+Not\+The\+Same}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{9}
+  \item {assert\+Is\+The\+Same}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {boolean}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {calc\+\_\+resistance}
+    \subitem {libresistance.\+c}, \hyperpage{5}
+    \subitem {libresistance.\+h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {F\+A\+L\+SE}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {has\+Invalid\+Arguments}
+    \subitem {libresistance.\+c}, \hyperpage{6}
+
+  \indexspace
+
+  \item {libresistance.\+c}, \hyperpage{5}
+    \subitem {calc\+\_\+resistance}, \hyperpage{5}
+    \subitem {has\+Invalid\+Arguments}, \hyperpage{6}
+  \item {libresistance.\+h}, \hyperpage{7}
+    \subitem {calc\+\_\+resistance}, \hyperpage{7}
+
+  \indexspace
+
+  \item {main}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{11}
+
+  \indexspace
+
+  \item {print\+Failed\+Test\+Text}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{11}
+  \item {print\+Success\+Test\+Text}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{12}
+  \item {print\+Test\+Text}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{13}
+
+  \indexspace
+
+  \item {T\+R\+UE}
+    \subitem {test\+\_\+main.\+c}, \hyperpage{9}
+  \item {test\+\_\+main.\+c}, \hyperpage{8}
+    \subitem {assert\+Is\+Not\+The\+Same}, \hyperpage{9}
+    \subitem {assert\+Is\+The\+Same}, \hyperpage{10}
+    \subitem {boolean}, \hyperpage{9}
+    \subitem {F\+A\+L\+SE}, \hyperpage{9}
+    \subitem {main}, \hyperpage{11}
+    \subitem {print\+Failed\+Test\+Text}, \hyperpage{11}
+    \subitem {print\+Success\+Test\+Text}, \hyperpage{12}
+    \subitem {print\+Test\+Text}, \hyperpage{13}
+    \subitem {T\+R\+UE}, \hyperpage{9}
+
+\end{theindex}

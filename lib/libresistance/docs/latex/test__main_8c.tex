@@ -1,0 +1,316 @@
+\hypertarget{test__main_8c}{}\section{test\+\_\+main.\+c File Reference}
+\label{test__main_8c}\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}libresistance.\+h\char`\"{}}\\*
+Include dependency graph for test\+\_\+main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{test__main_8c_a34995b955465f6bbb37c359173d50477}{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+R\+ED}~\char`\"{}\textbackslash{}x1b\mbox{[}31m\char`\"{}\hypertarget{test__main_8c_a34995b955465f6bbb37c359173d50477}{}\label{test__main_8c_a34995b955465f6bbb37c359173d50477}
+
+\begin{DoxyCompactList}\small\item\em Defines the red colour. \end{DoxyCompactList}\item 
+\#define \hyperlink{test__main_8c_a966c72d8d733c7734c6c784753d894c7}{A\+N\+S\+I\+\_\+\+C\+O\+L\+O\+R\+\_\+\+G\+R\+E\+EN}~\char`\"{}\textbackslash{}x1b\mbox{[}32m\char`\"{}\hypertarget{test__main_8c_a966c72d8d733c7734c6c784753d894c7}{}\label{test__main_8c_a966c72d8d733c7734c6c784753d894c7}
+
+\begin{DoxyCompactList}\small\item\em Defines the green colour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{test__main_8c_a7c6368b321bd9acd0149b030bb8275ed}{boolean} \{ \hyperlink{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa1e095cc966dbecf6a0d8aad75348d1a}{F\+A\+L\+SE} = 0, 
+\hyperlink{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa82764c3079aea4e60c80e45befbb839}{T\+R\+UE}
+ \}\begin{DoxyCompactList}\small\item\em To avoid having to use 1 and 0, there is an enum definition that mimics true and false. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{test__main_8c_a3cce6cf3c9672ca1aa12539a4d0a2ffd}{print\+Test\+Text} (char $\ast$test\+Name, char $\ast$text, char $\ast$colour, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em Prints a text with a given colour and a list of arguments. \end{DoxyCompactList}\item 
+void \hyperlink{test__main_8c_a66f18f87f6441f456b913891011961f2}{print\+Failed\+Test\+Text} (char $\ast$test\+Name, char $\ast$text,...)
+\begin{DoxyCompactList}\small\item\em Prints failing test messages. \end{DoxyCompactList}\item 
+void \hyperlink{test__main_8c_a88f8707e23480970b8ab040b43e6de1f}{print\+Success\+Test\+Text} (char $\ast$test\+Name, char $\ast$text,...)
+\begin{DoxyCompactList}\small\item\em Prints successful test messages. \end{DoxyCompactList}\item 
+unsigned \hyperlink{test__main_8c_abc90911659e645bbb1d2de847e25b493}{assert\+Is\+The\+Same} (char $\ast$test\+Name, float expected, float given)
+\begin{DoxyCompactList}\small\item\em Test method that is used to check if two floats are the same. \end{DoxyCompactList}\item 
+unsigned \hyperlink{test__main_8c_aa3162138d18e941d0b61ee83136e9d9c}{assert\+Is\+Not\+The\+Same} (char $\ast$test\+Name, float expected, float given)
+\begin{DoxyCompactList}\small\item\em Test method that is used to check if two floats are not the same. \end{DoxyCompactList}\item 
+int \hyperlink{test__main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\begin{DoxyCompactList}\small\item\em Runs all the tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!boolean@{boolean}}
+\index{boolean@{boolean}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{boolean}{boolean}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf boolean}}\hypertarget{test__main_8c_a7c6368b321bd9acd0149b030bb8275ed}{}\label{test__main_8c_a7c6368b321bd9acd0149b030bb8275ed}
+
+
+To avoid having to use 1 and 0, there is an enum definition that mimics true and false. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\+A\+L\+SE@{F\+A\+L\+SE}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!F\+A\+L\+SE@{F\+A\+L\+SE}}\item[{\em 
+F\+A\+L\+SE\hypertarget{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa1e095cc966dbecf6a0d8aad75348d1a}{}\label{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa1e095cc966dbecf6a0d8aad75348d1a}
+}]The same as 0. \index{T\+R\+UE@{T\+R\+UE}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!T\+R\+UE@{T\+R\+UE}}\item[{\em 
+T\+R\+UE\hypertarget{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa82764c3079aea4e60c80e45befbb839}{}\label{test__main_8c_a7c6368b321bd9acd0149b030bb8275edaa82764c3079aea4e60c80e45befbb839}
+}]The same as 1. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!assert\+Is\+Not\+The\+Same@{assert\+Is\+Not\+The\+Same}}
+\index{assert\+Is\+Not\+The\+Same@{assert\+Is\+Not\+The\+Same}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{assert\+Is\+Not\+The\+Same(char $\ast$test\+Name, float expected, float given)}{assertIsNotTheSame(char *testName, float expected, float given)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned assert\+Is\+Not\+The\+Same (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{test\+Name, }
+\item[{float}]{expected, }
+\item[{float}]{given}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_aa3162138d18e941d0b61ee83136e9d9c}{}\label{test__main_8c_aa3162138d18e941d0b61ee83136e9d9c}
+
+
+Test method that is used to check if two floats are not the same. 
+
+Compare two float values and returns 1 if it\textquotesingle{}s not the same and 0 if it is. It allso makes an assert(expected != given). 
+\begin{DoxyParams}{Parameters}
+{\em test\+Name} & The name of the test \\
+\hline
+{\em expected} & The value to expect \\
+\hline
+{\em given} & The value returned by the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1(T\+R\+UE) if the test is ok and 0(F\+A\+L\+SE) if it\textquotesingle{}s not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c_aa3162138d18e941d0b61ee83136e9d9c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{test__main_8c_aa3162138d18e941d0b61ee83136e9d9c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!assert\+Is\+The\+Same@{assert\+Is\+The\+Same}}
+\index{assert\+Is\+The\+Same@{assert\+Is\+The\+Same}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{assert\+Is\+The\+Same(char $\ast$test\+Name, float expected, float given)}{assertIsTheSame(char *testName, float expected, float given)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned assert\+Is\+The\+Same (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{test\+Name, }
+\item[{float}]{expected, }
+\item[{float}]{given}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_abc90911659e645bbb1d2de847e25b493}{}\label{test__main_8c_abc90911659e645bbb1d2de847e25b493}
+
+
+Test method that is used to check if two floats are the same. 
+
+Compare two float values and returns 1 if it\textquotesingle{}s the same and 0 if it\textquotesingle{}s not. It allso makes an assert(expected == given). 
+\begin{DoxyParams}{Parameters}
+{\em test\+Name} & The name of the test \\
+\hline
+{\em expected} & The value to expect \\
+\hline
+{\em given} & The value returned by the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 1(T\+R\+UE) if the test is ok and 0(F\+A\+L\+SE) if it\textquotesingle{}s not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c_abc90911659e645bbb1d2de847e25b493_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{test__main_8c_abc90911659e645bbb1d2de847e25b493_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!main@{main}}
+\index{main@{main}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{test__main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Runs all the tests. 
+
+Runs all the tests and returns 0 if it\textquotesingle{}s ok and 1 if it\textquotesingle{}s not \begin{DoxyReturn}{Returns}
+Returns 0 if it\textquotesingle{}s ok and 1 if it\textquotesingle{}s not ok. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!print\+Failed\+Test\+Text@{print\+Failed\+Test\+Text}}
+\index{print\+Failed\+Test\+Text@{print\+Failed\+Test\+Text}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{print\+Failed\+Test\+Text(char $\ast$test\+Name, char $\ast$text,...)}{printFailedTestText(char *testName, char *text,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Failed\+Test\+Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{test\+Name, }
+\item[{char $\ast$}]{text, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_a66f18f87f6441f456b913891011961f2}{}\label{test__main_8c_a66f18f87f6441f456b913891011961f2}
+
+
+Prints failing test messages. 
+
+Calls print\+Test\+Text function with red text as pre defined and provide the parameters sent in 
+\begin{DoxyParams}{Parameters}
+{\em test\+Name} & The name of the test \\
+\hline
+{\em text} & The text message to print out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{test__main_8c_a66f18f87f6441f456b913891011961f2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c_a66f18f87f6441f456b913891011961f2_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!print\+Success\+Test\+Text@{print\+Success\+Test\+Text}}
+\index{print\+Success\+Test\+Text@{print\+Success\+Test\+Text}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{print\+Success\+Test\+Text(char $\ast$test\+Name, char $\ast$text,...)}{printSuccessTestText(char *testName, char *text,...)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Success\+Test\+Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{test\+Name, }
+\item[{char $\ast$}]{text, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_a88f8707e23480970b8ab040b43e6de1f}{}\label{test__main_8c_a88f8707e23480970b8ab040b43e6de1f}
+
+
+Prints successful test messages. 
+
+Calls print\+Test\+Text function with green text as pre defined and provide the parameters sent in 
+\begin{DoxyParams}{Parameters}
+{\em test\+Name} & The name of the test \\
+\hline
+{\em text} & The text message to print out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{test__main_8c_a88f8707e23480970b8ab040b43e6de1f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{test__main_8c_a88f8707e23480970b8ab040b43e6de1f_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{test\+\_\+main.\+c@{test\+\_\+main.\+c}!print\+Test\+Text@{print\+Test\+Text}}
+\index{print\+Test\+Text@{print\+Test\+Text}!test\+\_\+main.\+c@{test\+\_\+main.\+c}}
+\subsubsection[{\texorpdfstring{print\+Test\+Text(char $\ast$test\+Name, char $\ast$text, char $\ast$colour, va\+\_\+list args)}{printTestText(char *testName, char *text, char *colour, va_list args)}}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Test\+Text (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{test\+Name, }
+\item[{char $\ast$}]{text, }
+\item[{char $\ast$}]{colour, }
+\item[{va\+\_\+list}]{args}
+\end{DoxyParamCaption}
+)}\hypertarget{test__main_8c_a3cce6cf3c9672ca1aa12539a4d0a2ffd}{}\label{test__main_8c_a3cce6cf3c9672ca1aa12539a4d0a2ffd}
+
+
+Prints a text with a given colour and a list of arguments. 
+
+A wrapper around printf that simplifies printing out test result text in different colours. 
+\begin{DoxyParams}{Parameters}
+{\em test\+Name} & The name of the test \\
+\hline
+{\em text} & The text message to print out \\
+\hline
+{\em colour} & The colour of the text to print \\
+\hline
+{\em args} & The arguments for the text output, it\textquotesingle{}s a va\+\_\+list so provide it in the same way as for a printf call \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test__main_8c_a3cce6cf3c9672ca1aa12539a4d0a2ffd_icgraph}
+\end{center}
+\end{figure}
+
+

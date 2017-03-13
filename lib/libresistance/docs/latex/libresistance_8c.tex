@@ -1,0 +1,104 @@
+\hypertarget{libresistance_8c}{}\section{libresistance.\+c File Reference}
+\label{libresistance_8c}\index{libresistance.\+c@{libresistance.\+c}}
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}libresistance.\+h\char`\"{}}\\*
+Include dependency graph for libresistance.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{libresistance_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{libresistance_8c_a9a6b027f3262084b6d01e4daa6f7da3a}{has\+Invalid\+Arguments} (int count, char conn, float $\ast$array)
+\begin{DoxyCompactList}\small\item\em Checks if any of the arguments are incorrect. \end{DoxyCompactList}\item 
+float \hyperlink{libresistance_8c_a339b5f0f336eb492e36f9d6467678440}{calc\+\_\+resistance} (int count, char conn, float $\ast$array)
+\begin{DoxyCompactList}\small\item\em Calculate the resistance for either parallell or serial connections. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{libresistance.\+c@{libresistance.\+c}!calc\+\_\+resistance@{calc\+\_\+resistance}}
+\index{calc\+\_\+resistance@{calc\+\_\+resistance}!libresistance.\+c@{libresistance.\+c}}
+\subsubsection[{\texorpdfstring{calc\+\_\+resistance(int count, char conn, float $\ast$array)}{calc_resistance(int count, char conn, float *array)}}]{\setlength{\rightskip}{0pt plus 5cm}float calc\+\_\+resistance (
+\begin{DoxyParamCaption}
+\item[{int}]{count, }
+\item[{char}]{conn, }
+\item[{float $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\hypertarget{libresistance_8c_a339b5f0f336eb492e36f9d6467678440}{}\label{libresistance_8c_a339b5f0f336eb492e36f9d6467678440}
+
+
+Calculate the resistance for either parallell or serial connections. 
+
+Calculates the resistance values for either a series of components that are connected in parallell or serial. 
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of components \\
+\hline
+{\em conn} & The type of connection, can be either P(\+Parallell) or S(\+Serial) \\
+\hline
+{\em $\ast$array} & The resistance values of the components \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The summarized resistance value. If any of the input arguments are incorrect, -\/1 will be returned. 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{libresistance_8c_a339b5f0f336eb492e36f9d6467678440_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{libresistance_8c_a339b5f0f336eb492e36f9d6467678440_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{libresistance.\+c@{libresistance.\+c}!has\+Invalid\+Arguments@{has\+Invalid\+Arguments}}
+\index{has\+Invalid\+Arguments@{has\+Invalid\+Arguments}!libresistance.\+c@{libresistance.\+c}}
+\subsubsection[{\texorpdfstring{has\+Invalid\+Arguments(int count, char conn, float $\ast$array)}{hasInvalidArguments(int count, char conn, float *array)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned has\+Invalid\+Arguments (
+\begin{DoxyParamCaption}
+\item[{int}]{count, }
+\item[{char}]{conn, }
+\item[{float $\ast$}]{array}
+\end{DoxyParamCaption}
+)}\hypertarget{libresistance_8c_a9a6b027f3262084b6d01e4daa6f7da3a}{}\label{libresistance_8c_a9a6b027f3262084b6d01e4daa6f7da3a}
+
+
+Checks if any of the arguments are incorrect. 
+
+Checks if any of the arguments are incorrect. It checks\+: conn is P or S count is larger than 0 array is not an empty array 
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of components \\
+\hline
+{\em conn} & The type of connection, can be either P(\+Parallell) or S(\+Serial) \\
+\hline
+{\em $\ast$array} & The resistance values of the components \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns -\/1 if any of the arguments is incorrect, otherwise 0. 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{libresistance_8c_a9a6b027f3262084b6d01e4daa6f7da3a_icgraph}
+\end{center}
+\end{figure}
+
+

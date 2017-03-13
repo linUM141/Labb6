@@ -1,7 +1,21 @@
+/**
+* @file libresistance.c
+*/
 #include "stdio.h"
 #include "libresistance.h"
 
-
+/**
+* @brief Checks if any of the arguments are incorrect
+*
+* Checks if any of the arguments are incorrect. It checks:
+* conn is P or S
+* count is larger than 0
+* array is not an empty array
+* @param count The number of components
+* @param conn The type of connection, can be either P(Parallell) or S(Serial)
+* @param *array The resistance values of the components
+* @return Returns -1 if any of the arguments is incorrect, otherwise 0.
+**/
 unsigned hasInvalidArguments(int count, char conn, float *array){
     if(count <= 0){
         return -1;
