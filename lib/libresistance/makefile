@@ -26,3 +26,4 @@ uninstall:
 docs: lib
 	doxygen
 	make -C docs/latex
+	cp docs/latex/refman.pdf docs/documentation.pdf
