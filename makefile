@@ -1,8 +1,10 @@
-all: program
+all: program programGTK
 
 program: lib
 	gcc -L./lib -Wall -o electrotest main.c -lresistance -lpower -lcomponent -Wl,-rpath=./lib
 
+programGTK: lib
+	gcc -L./lib -Wall -o electrotestgtk maingtk.c `pkg-config --cflags --libs gtk+-3.0` -lresistance -lpower -lcomponent -Wl,-rpath=./lib
 libInstall: lib
 	sudo cp lib/libresistance.so /usr/lib/libresistance.so
 	sudo cp lib/libpower.so /usr/lib/libpower.so
