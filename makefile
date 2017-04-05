@@ -4,7 +4,8 @@ program: lib
 	gcc -L./lib -Wall -o electrotest main.c -lresistance -lpower -lcomponent -Wl,-rpath=./lib
 
 programGTK: lib
-	gcc -L./lib -Wall -o electrotestgtk maingtk.c `pkg-config --cflags --libs gtk+-3.0` -lresistance -lpower -lcomponent -Wl,-rpath=./lib
+	gcc -L./lib -Wall -o electrotestgtk maingtk.c electrolibui.c `pkg-config --cflags --libs gtk+-3.0` -lresistance -lpower -lcomponent -Wl,-rpath=./lib
+
 libInstall: lib
 	sudo cp lib/libresistance.so /usr/lib/libresistance.so
 	sudo cp lib/libpower.so /usr/lib/libpower.so
@@ -23,7 +24,6 @@ libpower.o: lib/libpower/libpower.c lib/libpower/libpower.h
 
 libcomponent.o: lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
 	gcc -c -fPIC lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
-        #gcc -c -fPIC -mfpmath='387' lib/libcomponent/libcomponent.c lib/libcomponent/libcomponent.h
 
 clean:
 	rm *.o
